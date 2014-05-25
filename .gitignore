@@ -1,0 +1,20 @@
+*.mpk
+*.n64
+*.N64
+*.dat
+*.bizhawk
+*.tsv
+
+
+#################
+## Eclipse
+#################
+
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/	
+.classpath
+.settings/
+.loadpath
