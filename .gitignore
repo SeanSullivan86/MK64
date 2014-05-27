@@ -6,6 +6,7 @@
 *.bkm
 *.tsv
 *.jpg
+*.png
 
 #################
 ## Eclipse
