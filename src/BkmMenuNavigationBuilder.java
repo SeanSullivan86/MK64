@@ -13,7 +13,7 @@ public class BkmMenuNavigationBuilder {
 	
 	private static final String blank = "|.|.............. 000, 000|.............. 000, 000|.............. 000, 000|.............. 000, 000|\n";
 	private static final String start = "|.|.......S...... 000, 000|.............. 000, 000|.............. 000, 000|.............. 000, 000|\n";
-	private static final String right = "|.|..R........... 000, 000|.............. 000, 000|.............. 000, 000|.............. 000, 000|\n";
+	private static final String right = "|.|...R.......... 000, 000|.............. 000, 000|.............. 000, 000|.............. 000, 000|\n";
 	private static final String down =  "|.|.D............ 000, 000|.............. 000, 000|.............. 000, 000|.............. 000, 000|\n";
 	
 	private final StringBuilder builder;

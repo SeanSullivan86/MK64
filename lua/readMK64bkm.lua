@@ -77,11 +77,11 @@ function read_next_frame()
     return
   end
   
-  -- Flag	 UDRLBAZSLRudlr xxx, yyy	 other controllers
+  -- Flag	 UDLRBAZSLRudlr xxx, yyy	 other controllers
   buttons["P1 DPad U"] = ternary(string.sub(dataLine,4,4) == "U",true,nil)
   buttons["P1 DPad D"] = ternary(string.sub(dataLine,5,5) == "D",true,nil)
-  buttons["P1 DPad R"] = ternary(string.sub(dataLine,6,6) == "R",true,nil)
-  buttons["P1 DPad L"] = ternary(string.sub(dataLine,7,7) == "L",true,nil)
+  buttons["P1 DPad L"] = ternary(string.sub(dataLine,6,6) == "L",true,nil)
+  buttons["P1 DPad R"] = ternary(string.sub(dataLine,7,7) == "R",true,nil)
   buttons["P1 B"] = ternary(string.sub(dataLine,8,8) == "B",true,nil)
   buttons["P1 A"] = ternary(string.sub(dataLine,9,9) == "A",true,nil)
   buttons["P1 Z"] = ternary(string.sub(dataLine,10,10) == "Z",true,nil)

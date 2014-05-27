@@ -3,8 +3,9 @@
 *.N64
 *.dat
 *.bizhawk
+*.bkm
 *.tsv
-
+*.jpg
 
 #################
 ## Eclipse

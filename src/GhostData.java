@@ -56,8 +56,12 @@ class GhostData {
 		return str.toString();
 	}
 	
-	public String toBizHawkString() {
+	public String toBkmMovie() {
 		StringBuilder str = new StringBuilder();
+	
+		// Write the movie from Power On through course selection
+		str.append((new CourseSelectionBkmBuilder()).getBkmString(1));
+		
 		for (GhostDataBlock block : blocks) {
 			str.append(block.toBizHawkString());
 		}

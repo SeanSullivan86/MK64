@@ -49,6 +49,9 @@ public class CourseSelectionBkmBuilder {
 			builder.wait(10);
 		}
 		
+		builder.pressButton(N64Button.Start, 5); // select cup
+		builder.wait(10);
+		
 		// choose race
 		int race = (course-1) % 4;
 		for (int i = 0; i < race; i++) {

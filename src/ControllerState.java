@@ -23,7 +23,7 @@ class ControllerState {
 	
 	public String toBizHawkString() {
 		StringBuilder str = new StringBuilder();
-		// UDRLBAZSLRudlr xxx, yyy
+		// UDLRBAZSLRudlr xxx, yyy
 		str.append("|.|...."); // UDRL
 		str.append(b ? "B" : "."); // B
 		str.append(a ? "A" : "."); // A

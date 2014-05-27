@@ -47,8 +47,8 @@ public class GhostReaderApp {
 					fileName+"."+i+".longTabFile.tsv",
 					ghostData.toLongTabDelimitedString());
 			Utils.writeStringToFile(
-					fileName+"."+i+".bizhawk",
-					ghostData.toBizHawkString());
+					fileName+"."+i+".bkm",
+					ghostData.toBkmMovie());
 		}
 		
 		
