@@ -104,7 +104,10 @@ end
 memory.usememorydomain("RDRAM")
 local p1x = 0
 local p1y = 0
+local speed = 0
 local raceTimer = 0
+local lap = 0
+local isMt = 0
 local outputFile = assert(io.open("testOutput.csv", "w"))
 
 while true do
@@ -116,9 +119,12 @@ while true do
 	
 	p1x = mainmemory.readfloat(0x0F69A4, false)
 	p1y = mainmemory.readfloat(0x0F69AC, false)
-	raceTimer = mainmemory.read_u32_le(0x18CA7C)
-	console.log(string.format("%d,%f,%f\n",raceTimer,p1x,p1y))
-	outputFile:write(string.format("%d,%f,%f\n",raceTimer,p1x,p1y)) 
+	raceTimer = mainmemory.read_u32_le(0x18CA78)
+	speed = mainmemory.readfloat(0x0DC598, false)
+	lap = mainmemory.read_s32_le(0x164390)
+	isMt = mainmemory.read_u32_le(0x0F6A4D)
+	-- console.log(string.format("%d,%f,%f,%f,%d,%d\n",raceTimer,p1x,p1y,speed,lap,isMt))
+	outputFile:write(string.format("%d,%f,%f,%f,%d,%d\n",raceTimer,p1x,p1y,speed,lap,isMt))
 	
 	-- console.log(string.format('Buttons : %s', table.tostring(buttons)))
     input_was_used = false
