@@ -25,16 +25,25 @@ public class CourseMapWriter {
 		this.lastPointPlotted = null;
 	}
 	
-	public void plotPoint(IntCoordinates2D point) {
+	public void plotPoint(IntCoordinates2D point, boolean isShroom) {
 		if (lastPointPlotted == null) {
 			this.lastPointPlotted = point;
 			return;
 		}
-		this.graphics.setColor(Color.red);
+		if (isShroom) {
+			this.graphics.setColor(Color.red);
+		} else {
+		    this.graphics.setColor(Color.blue);
+		}
 		this.graphics.drawLine(
 				lastPointPlotted.getX(), lastPointPlotted.getY(),
 				point.getX(), point.getY());
 		this.lastPointPlotted = point;
+	}
+	
+	public void plotMiniTurbo(IntCoordinates2D point) {
+		this.graphics.setColor(Color.red);
+		this.graphics.fillOval(point.getX()-4, point.getY()-4, 8, 8);
 	}
 
 	public void publishMap() {
