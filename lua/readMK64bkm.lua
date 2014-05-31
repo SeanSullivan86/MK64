@@ -38,8 +38,8 @@ function table.tostring( tbl )
   return "{" .. table.concat( result, "," ) .. "}"
 end
 
-local m64_filename = forms.openfile(nil,nil,"Mupen Movie Files (*.M64)|*.M64|All Files (*.*)|*.*")
-
+local m64_filename = forms.openfile(nil,nil,"Movie Files (*.bkm)|*.M64|All Files (*.*)|*.*")
+gui.cleartext()
 console.clear()
 if m64_filename == "" then
   console.log("No movie selected. Exiting.")
@@ -120,9 +120,10 @@ while true do
 	p1x = mainmemory.readfloat(0x0F69A4, false)
 	p1y = mainmemory.readfloat(0x0F69AC, false)
 	raceTimer = mainmemory.read_u32_le(0x18CA78)
-	speed = mainmemory.readfloat(0x0DC598, false)
+	speed = mainmemory.readfloat(0x18CFE4, false)
+	-- gui.drawText(100, 100, string.format("%.2f", speed))
 	lap = mainmemory.read_s32_le(0x164390)
-	isMt = mainmemory.read_u32_le(0x0F6A4D)
+	isMt = mainmemory.read_u8(0x0F6A4D)
 	-- console.log(string.format("%d,%f,%f,%f,%d,%d\n",raceTimer,p1x,p1y,speed,lap,isMt))
 	outputFile:write(string.format("%d,%f,%f,%f,%d,%d\n",raceTimer,p1x,p1y,speed,lap,isMt))
 	
@@ -140,9 +141,14 @@ while true do
     console.log("Movie finished")
     client.pause()
 	outputFile:close()
+	gui.cleartext()
     return
   end
   
+  if (raceTimer > 0) then
+    speed = mainmemory.readfloat(0x18CFE4, false)
+    gui.drawText(200, 35, "Speed: " .. string.format("%.1f", speed), 0xFFFF0000)
+  end
   emu.frameadvance()
 end
 
