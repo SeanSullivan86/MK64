@@ -112,7 +112,7 @@ local outputFile = assert(io.open("testOutput.csv", "w"))
 
 while true do
   -- console.log(string.format('Current Buttons : %s', table.tostring(joypad.get())))
-
+  -- 
   -- Only read the next frame of data if the last one was used
   if input_was_used and not finished then
     read_next_frame()
